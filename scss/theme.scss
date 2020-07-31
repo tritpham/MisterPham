@@ -1,4 +1,12 @@
 body
 {
   display: flex;
+  font-family: $font-family-main;
+  font-weight: $font-weight-normal;
+  margin: 0;
+}
+
+h1
+{
+  font-weight: $font-weight-normal;
 }
