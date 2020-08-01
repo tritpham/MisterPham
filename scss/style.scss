@@ -8,9 +8,11 @@
 
 // Mix-ins
 @import "mixins/Button.scss";
+@import "mixins/Utility.scss";
 
 // Major Sections
 @import "modules/Main.scss";
 @import "modules/Landing.scss";
+@import "modules/Bio.scss";
 
 // Reusable Sections
