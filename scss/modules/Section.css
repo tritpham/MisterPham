@@ -1,0 +1,81 @@
+.Section {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  height: 130vh;
+  position: fixed;
+  width: 100%;
+  -webkit-transform: translateY(30vh);
+          transform: translateY(30vh);
+  -webkit-transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
+  transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
+}
+
+.Section-wrapper {
+  height: 100vh;
+  -webkit-transform: translateY(40vh);
+          transform: translateY(40vh);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+  transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+}
+
+/* Set stacking context of slides */
+.Section:nth-child(1) {
+  z-index: 3;
+}
+
+.Section:nth-child(2) {
+  z-index: 2;
+}
+
+.Section:nth-child(3) {
+  z-index: 1;
+}
+
+.Section.up-scroll {
+  -webkit-transform: translate3d(0, -15vh, 0);
+          transform: translate3d(0, -15vh, 0);
+}
+
+.Section.up-scroll .Section-wrapper {
+  -webkit-transform: translateY(15vh);
+          transform: translateY(15vh);
+}
+
+.Section.up-scroll + .Section {
+  -webkit-transform: translate3d(0, 30vh, 0);
+          transform: translate3d(0, 30vh, 0);
+}
+
+.Section.up-scroll + .Section .Section-wrapper {
+  -webkit-transform: translateY(30vh);
+          transform: translateY(30vh);
+}
+
+.Section.down-scroll {
+  -webkit-transform: translate3d(0, -130vh, 0);
+          transform: translate3d(0, -130vh, 0);
+}
+
+.Section.down-scroll .Section-wrapper {
+  -webkit-transform: translateY(40vh);
+          transform: translateY(40vh);
+}
+
+.Section.down-scroll + .Section:not(.down-scroll) {
+  -webkit-transform: translate3d(0, -15vh, 0);
+          transform: translate3d(0, -15vh, 0);
+}
+
+.Section.down-scroll + .Section:not(.down-scroll) .Section-wrapper {
+  -webkit-transform: translateY(15vh);
+          transform: translateY(15vh);
+}
+/*# sourceMappingURL=Section.css.map */

@@ -1,0 +1,69 @@
+// ------------- MIXINS ------------- //
+@mixin transition($time, $property: all, $easing: ease-in) {
+  transition: $property $time $easing;
+}
+
+// ------------- VARIABLES ------------- //
+$parallax-offset: 30vh;
+$content-offset: 40vh;
+$transition-speed: 1.2s;
+$slide-number: 3;
+
+.Section
+{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  height: 100vh + $parallax-offset;
+  position: fixed;
+  width: 100%;
+  transform: translateY($parallax-offset);
+  @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
+
+  &-wrapper
+  {
+    height: 100vh;
+    transform: translateY($content-offset);
+    will-change: transform;
+    backface-visibility: hidden;
+    @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
+  }
+}
+
+/* Set stacking context of slides */
+@for $i from 1 to ($slide-number + 1) {
+    .Section:nth-child(#{$i}) {
+        z-index: ($slide-number + 1) - $i; 
+    }
+}
+
+// ------------- SET TRANSFORM VALUES ------------- //
+
+.Section.up-scroll {
+  transform: translate3d(0,-$parallax-offset / 2,0);
+  .Section-wrapper {
+    transform: translateY($parallax-offset / 2);
+  }
+  + .Section {
+    transform: translate3d(0,$parallax-offset,0);
+      .Section-wrapper {
+        transform: translateY($parallax-offset);
+      }
+    }
+}
+
+.Section.down-scroll {
+  transform: translate3d(0,-(100vh + $parallax-offset),0);
+  .Section-wrapper {
+    transform: translateY($content-offset);
+  }
+  + .Section:not(.down-scroll) {
+    transform: translate3d(0,-$parallax-offset / 2,0);
+      .Section-wrapper {
+        transform: translateY($parallax-offset / 2);
+      }
+  }
+}

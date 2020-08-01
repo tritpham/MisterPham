@@ -4,6 +4,12 @@ body
   font-family: $font-family-main;
   font-weight: $font-weight-normal;
   margin: 0;
+  overflow: hidden;
+}
+
+html
+{
+  overflow: hidden;
 }
 
 h1
