@@ -10,3 +10,9 @@ h1
 {
   font-weight: $font-weight-normal;
 }
+
+*:focus
+{
+  outline: 0;
+  box-shadow: 0 0 0 1px $brand-tertiary;
+}

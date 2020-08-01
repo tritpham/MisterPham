@@ -1,3 +1,129 @@
 .Bio
 {
+  color: $white;
+
+  &-container
+  {
+    margin-top: $padding-default;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include bpgte(md)
+    {
+      margin-top: 64px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1440px;
+      flex-direction: row;
+    }
+  }
+
+  &-col
+  {
+    background-color: $gray-1;
+    margin: 0 $padding-default;
+    padding: $padding-default;
+
+    &:last-child
+    {
+      margin-top: $padding-default;
+    }
+
+    @include bpgte(md)
+    {
+      min-height: 400px;
+      padding: 32px;
+      margin: 0 32px;
+      box-shadow: $shadow-default;
+
+      &:first-child
+      {
+        width: 40%;
+      }
+
+      &:last-child
+      {
+        margin-top: 0;
+        width: 60%;
+      }
+    }
+  }
+
+  &-timeline
+  {
+    padding-left: 24px;
+    border-left: 1px solid $brand-secondary;
+    height: 100%;
+    position: relative;
+  }
+
+  &-timelineItem
+  {
+    position: relative;
+
+    &:before
+    {
+      position :absolute;
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: $brand-secondary;
+      border-radius: 50%;
+      left: -29px;
+      top: 28px;
+      transition: $transition-default;
+    }
+
+    &:hover:before
+    {
+      background-color: $white;
+      box-shadow:0px 0px 10px 2px rgb(159, 163, 159);
+    }
+
+    &:not(:first-child)
+    {
+      margin-top: $padding-narrow;
+    }
+  }
+
+  &-timelineWrapper
+  {
+    @include Button--base($brand-secondary, $gray-1);
+
+    .Bio-timelineDescription
+    {
+      color: $white;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: $padding-default 0 $padding-default $padding-default;
+  }
+
+  &-timelineDate
+  {
+    display: inline-block;
+    background-color: $brand-secondary;
+    padding: 4px;
+    font-weight: $font-weight-semibold;
+    color: $gray-1;
+  }
+
+  &-timelineTitle
+  {
+    @include font-sizes(20px, 24px);
+
+    font-weight: $font-weight-semibold;
+    color: $brand-secondary;
+    width: 100%;
+    margin-top: $padding-narrow;
+  }
+
+  &-timelineDescription
+  {
+    width: 100%;
+    font-weight: $font-weight-light;
+    margin-top: $padding-narrow;
+  }
 }

@@ -1,14 +1,95 @@
+@mixin Button--base($color: $brand-tertiary, $color-initial: $white)
+{
+  position: relative;
+  color: $color-initial;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 2px $color-initial;
+  transition: color 0.2s ease-in-out;
+
+  &::before,
+  &::after
+  {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+  }
+
+  &::before
+  {
+    top: 0;
+    left: 0;
+  }
+
+  &::after
+  {
+    bottom: 0;
+    right: 0;
+  }
+  
+  &:focus,
+  &:hover
+  {
+    color: $color;
+  }
+
+  &:focus::before,
+  &:focus::after,
+  &:hover::before,
+  &:hover::after
+  {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:focus::before,
+  &:hover::before
+  {
+    border-top-color: $color;
+    border-right-color: $color;
+    transition:
+      width 0.2s ease-in-out,
+      height 0.2s ease-in-out 0.2s;
+  }
+
+  &:focus::after,
+  &:hover::after
+  {
+    border-bottom-color: $color;
+    border-left-color: $color;
+    transition:
+      border-color 0s ease-in-out 0.4s,
+      width 0.2s ease-in-out 0.4s,
+      height 0.2s ease-in-out 0.6s;
+  }
+
+  &::after
+  {
+    top: 0;
+    left: 0;
+  }
+
+  &:focus::after,
+  &:hover::after
+  {
+    border-bottom-color: $color;
+    border-left-color: $color;
+    transition:
+      height 0.2s ease-in-out,
+      width 0.2s ease-in-out 0.2s;
+  }
+}
+
 @mixin Button--primary
 {
+  @include Button--base($brand-tertiary, $white);
+
   font-size: 24px;
-  color: $white;
   padding: $padding-default;
-  box-sizing: border-box;
   margin-top: $padding-default;
-  transition: color 0.2s ease-in-out;
-  position: relative;
   vertical-align: middle;
-  box-shadow: inset 0 0 0 2px $white;
   min-width: 300px;
 
   &::before,
@@ -34,11 +115,14 @@
     right: 0;
   }
   
+  &:focus,
   &:hover
   {
     color: $brand-tertiary;
   }
 
+  &:focus::before,
+  &:focus::after,
   &:hover::before,
   &:hover::after
   {
@@ -46,6 +130,7 @@
     height: 100%;
   }
 
+  &:focus::before,
   &:hover::before
   {
     border-top-color: $brand-tertiary;
@@ -55,6 +140,7 @@
       height 0.2s ease-in-out 0.2s;
   }
 
+  &:focus::after,
   &:hover::after
   {
     border-bottom-color: $brand-tertiary;
@@ -71,6 +157,7 @@
     left: 0;
   }
 
+  &:focus::after,
   &:hover::after
   {
     border-bottom-color: $brand-tertiary;
