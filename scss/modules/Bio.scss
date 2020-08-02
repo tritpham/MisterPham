@@ -23,6 +23,7 @@
 
   &-col
   {
+    overflow: auto;
     background-color: $gray-1;
     margin: 0 $padding-default;
     padding: $padding-default;
