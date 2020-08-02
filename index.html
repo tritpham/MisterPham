@@ -5,14 +5,15 @@
     <link rel="stylesheet" type="text/css" href="../scss/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script type="module" src="js/global.js"></script>
   </head>
   <body>
     <div class="Main">
-      <div class="Section js-section up-scroll">
+      <div class="Section js-section up-scroll" id="particles-js">
         <div class="Landing Section-wrapper">
           <h1 class="Landing-title">Hello! I'm <span class="Landing-name">Tri Pham</span>.</h1>
-          <button class="Landing-cta">who am i?</button>
+          <button id="js-landing-button" class="Landing-cta">who am i?</button>
         </div>
       </div>
       <div class="Section js-section">
@@ -55,7 +56,7 @@
                       February 2017 - May 2018
                     </span>
                     <span class="Bio-timelineTitle">
-                      Technical Consultant/ Presales Engineer
+                      Technical Consultant / Presales Engineer
                     </span>
                     <span class="Bio-timelineDescription">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni mollitia quo nobis provident itaque fugiat sequi deserunt similique cumque! Quos ab, vitae repudiandae distinctio soluta fuga iusto cumque aut optio.

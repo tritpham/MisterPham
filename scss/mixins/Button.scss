@@ -82,9 +82,9 @@
   }
 }
 
-@mixin Button--primary
+@mixin Button--primary($color: $brand-tertiary, $color-initial: $white)
 {
-  @include Button--base($brand-tertiary, $white);
+  @include Button--base($color, $color-initial);
 
   font-size: 24px;
   padding: $padding-default;

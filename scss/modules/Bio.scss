@@ -1,19 +1,21 @@
 .Bio
 {
   color: $white;
+  background-color: $white;
 
   &-container
   {
     margin-top: $padding-default;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 
     @include bpgte(md)
     {
-      margin-top: 64px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
+      padding-top: 64px;
+      padding-bottom: 64px;
       max-width: 1440px;
       flex-direction: row;
     }
@@ -71,7 +73,7 @@
       background-color: $brand-secondary;
       border-radius: 50%;
       left: -29px;
-      top: 28px;
+      top: 24px;
       transition: $transition-default;
     }
 
@@ -89,7 +91,7 @@
 
   &-timelineWrapper
   {
-    @include Button--base($brand-secondary, $gray-1);
+    @include Button--base($brand-senary, $gray-1);
 
     .Bio-timelineDescription
     {
@@ -98,16 +100,17 @@
 
     display: flex;
     flex-wrap: wrap;
-    padding: $padding-default 0 $padding-default $padding-default;
+    padding: $padding-default;
   }
 
   &-timelineDate
   {
     display: inline-block;
-    background-color: $brand-secondary;
-    padding: 4px;
+    background-color: $white;
+    padding: 4px $padding-narrow;
     font-weight: $font-weight-semibold;
     color: $gray-1;
+    border-radius: 4px;
   }
 
   &-timelineTitle

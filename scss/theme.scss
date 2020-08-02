@@ -22,3 +22,11 @@ h1
   outline: 0;
   box-shadow: 0 0 0 1px $brand-tertiary;
 }
+
+.particles-js-canvas-el
+{
+  position: absolute;
+  top: 0;
+  background-color: $brand-quinary;
+  z-index: -1;
+}
